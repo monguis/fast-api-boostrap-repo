@@ -1,5 +1,5 @@
 from fastapi import Request, HTTPException
-from logging_config import generateLoger
+from logging_config import generate_logger
 from fastapi.responses import JSONResponse
 from starlette.status import (
     HTTP_400_BAD_REQUEST,
@@ -11,7 +11,7 @@ from starlette.status import (
 )
 
 async def http_exception_handler(request: Request, exc: HTTPException):
-    logger = generateLoger("error")
+    logger = generate_logger("error")
     
     error_type = ""
     
@@ -36,7 +36,6 @@ async def http_exception_handler(request: Request, exc: HTTPException):
         status_code=exc.status_code,
         content={"message": exc.detail, "type": "HTTPException"}
     )
-
 
 
 class BadRequestException(HTTPException):
