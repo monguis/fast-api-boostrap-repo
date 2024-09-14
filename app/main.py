@@ -1,10 +1,10 @@
 from logging_config import generate_logger
 from fastapi import FastAPI
 from fastapi.exceptions import HTTPException
-from exception_handlers import (http_exception_handler, NotFoundException)
+from exception_handlers import (http_exception_handler)
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
-from middlewares import error_handling, logging, security, timing
+from app.middlewares import error_handling, logging, security, timing
 
 
 app = FastAPI()
